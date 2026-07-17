@@ -1,0 +1,29 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "docker:enableMajor",
+    "helpers:pinGitHubActionDigestsToSemver",
+    "github>woodleighschool/renovate-config:annotated.json5",
+    "github>woodleighschool/renovate-config:autoMerge.json5",
+    "github>woodleighschool/renovate-config:groups.json5",
+    "github>woodleighschool/renovate-config:helmPostUpgradeTasks.json5",
+    "github>woodleighschool/renovate-config:labels.json5",
+    "github>woodleighschool/renovate-config:semanticCommits.json5",
+    ":automergeBranch",
+    ":dependencyDashboard",
+    ":disableRateLimiting"
+  ],
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 3am on the first day of the month"]
+  },
+  "packageRules": [
+    {
+      "description": "NPM Bump Range Strategy",
+      "matchManagers": ["npm"],
+      "rangeStrategy": "bump"
+    }
+  ]
+}
