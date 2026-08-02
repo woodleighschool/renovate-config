@@ -2,7 +2,3 @@
 git_url = "https://github.com/woodleighschool/.github"
 ref = "main"
 configs = ["lefthook.common.toml"]
-
-[pre-commit.commands.renovate-config-validator]
-glob = ["*.json5"]
-run = "mise run validate -- {staged_files}"
