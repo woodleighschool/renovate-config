@@ -8,7 +8,8 @@ on:
       - main
     paths:
       - .renovaterc.json5
-      - .renovate/**.json5
+      - "*.json"
+      - "*.json5"
   workflow_dispatch:
 
 permissions: {}

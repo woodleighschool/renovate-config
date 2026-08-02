@@ -3,9 +3,9 @@
   packageRules: [
     {
       description: "Go Toolchain Group",
-      matchManagers: ["mise", "gomod"],
-      matchDepNames: ["go"],
-      matchFileNames: [".mise/config.toml", "go.mod"],
+      matchManagers: ["dockerfile", "gomod", "mise"],
+      matchDepNames: ["go", "golang"],
+      matchFileNames: ["Dockerfile", "go.mod", ".mise/config.toml"],
       groupName: "Go toolchain",
       groupSlug: "go-toolchain",
     },
@@ -19,11 +19,27 @@
     },
     {
       description: "Node Toolchain Group",
-      matchManagers: ["mise"],
+      matchManagers: ["dockerfile", "mise"],
       matchDepNames: ["node"],
-      matchFileNames: [".mise/config.toml"],
+      matchFileNames: ["Dockerfile", ".mise/config.toml"],
       groupName: "Node toolchain",
       groupSlug: "node-toolchain",
+    },
+    {
+      description: "pnpm Group",
+      matchManagers: ["mise", "npm"],
+      matchDepNames: ["pnpm"],
+      matchFileNames: [".mise/config.toml", "**/package.json"],
+      groupName: "pnpm",
+      groupSlug: "pnpm",
+    },
+    {
+      description: "React Runtime Group",
+      matchManagers: ["npm"],
+      matchPackageNames: ["react", "react-dom"],
+      matchFileNames: ["**/package.json"],
+      groupName: "React runtime",
+      groupSlug: "react-runtime",
     },
   ],
 }

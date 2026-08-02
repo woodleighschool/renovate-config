@@ -5,4 +5,4 @@ configs = ["lefthook.common.toml"]
 
 [pre-commit.commands.renovate-config-validator]
 glob = ["*.json5"]
-run = "renovate-config-validator --strict {staged_files}"
+run = "mise run validate -- {staged_files}"

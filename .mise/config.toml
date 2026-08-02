@@ -1,26 +1,43 @@
 # https://mise.jdx.dev/configuration.html
 [tools]
 lefthook = "2.1.10"
-node = "26.5.0"
+node = "26.5.1"
 oxfmt = "0.61.0"
-"npm:renovate" = "43.285.4"
 shellcheck = "0.11.0"
 zizmor = "1.28.0"
 
-[tasks.gen]
-description = "Regenerate default.json from the preset directories"
-run = "node scripts/gen-default.mjs"
+[settings]
+experimental = true
+pin = true
+lockfile = true
+minimum_release_age = "12 hours"
 
-[tasks."lint"]
-description = "Check JSON/JSON5, YAML, Markdown, and shell formatting"
-run = [
-  "oxfmt --check .",
-  "git ls-files -co --exclude-standard '*.sh' | xargs -r shellcheck",
-]
+[tasks.format]
+description = "Format repository files"
+run = "oxfmt --write ."
+
+[tasks.fmt-check]
+description = "Check repository formatting"
+run = "oxfmt --check ."
+
+[tasks.shell-lint]
+description = "Lint repository shell scripts"
+run = "git ls-files -co --exclude-standard '*.sh' | xargs -r shellcheck"
+
+[tasks.workflow-lint]
+description = "Lint GitHub Actions workflows"
+run = "zizmor --offline --no-ignores .github/workflows"
+
+[tasks.lint]
+description = "Run repository checks"
+depends = ["fmt-check", "shell-lint", "workflow-lint", "validate"]
 
 [tasks.validate]
 description = "Validate Renovate presets against the schema"
 run = "renovate-config-validator --strict"
+
+[tasks.validate.tools]
+"npm:renovate" = "43.285.4"
 
 [hooks]
 postinstall = "lefthook install"
