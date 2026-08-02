@@ -37,7 +37,7 @@ description = "Validate Renovate presets against the schema"
 run = "renovate-config-validator --strict"
 
 [tasks.validate.tools]
-"npm:renovate" = "43.285.4"
+"npm:renovate" = "44.5.3"
 
 [hooks]
 postinstall = "lefthook install"
