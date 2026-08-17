@@ -10,6 +10,12 @@
       labels: ["type/minor"],
     },
     {
+      description: "zer0ver: 0.x minors can break at any time, label them as majors",
+      matchUpdateTypes: ["minor"],
+      matchCurrentVersion: "/^v?0\\./",
+      labels: ["type/major"],
+    },
+    {
       matchUpdateTypes: ["patch"],
       labels: ["type/patch"],
     },

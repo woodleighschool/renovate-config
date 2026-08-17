@@ -4,20 +4,25 @@
     "config:recommended",
     "docker:enableMajor",
     "helpers:pinGitHubActionDigestsToSemver",
+    "abandonments:recommended",
     "github>woodleighschool/renovate-config:annotated.json5",
-    "github>woodleighschool/renovate-config:autoMerge.json5",
     "github>woodleighschool/renovate-config:groups.json5",
     "github>woodleighschool/renovate-config:helmPostUpgradeTasks.json5",
     "github>woodleighschool/renovate-config:labels.json5",
     "github>woodleighschool/renovate-config:semanticCommits.json5",
-    ":automergeBranch",
+    "security:gomodIndirectSecurityUpdates",
+    ":automergePr",
+    ":configMigration",
     ":dependencyDashboard",
     ":disableRateLimiting"
   ],
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+  "minimumReleaseAgeBehaviour": "timestamp-optional",
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["before 3am on the first day of the month"]
+    "schedule": ["before 3am on the first day of the month"],
+    "commitMessageExtra": "({{manager}})",
+    "additionalBranchPrefix": "{{manager}}-"
   },
   "packageRules": [
     {
