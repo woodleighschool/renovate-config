@@ -1,0 +1,29 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  customManagers: [
+    {
+      description: "Update home-operations/.github shared action pins (per-action prefixed tags)",
+      customType: "regex",
+      managerFilePatterns: ["/\\.github/workflows/[^/]+\\.ya?ml$/"],
+      matchStrings: [
+        "uses: home-operations/\\.github/actions/(?<action>[\\w-]+)@(?<currentDigest>[a-f0-9]{40})\\s+#\\s+[\\w-]+-(?<currentValue>v?\\d+\\.\\d+\\.\\d+)",
+      ],
+      depNameTemplate: "home-operations/.github/actions/{{{action}}}",
+      packageNameTemplate: "home-operations/.github",
+      datasourceTemplate: "github-tags",
+      extractVersionTemplate: "^{{{action}}}-(?<version>v?\\d+\\.\\d+\\.\\d+)$",
+      versioningTemplate: "semver-coerced",
+    },
+  ],
+  packageRules: [
+    {
+      matchManagers: ["custom.regex"],
+      matchPackageNames: ["home-operations/.github"],
+      groupName: "github-actions",
+      semanticCommitType: "ci",
+      semanticCommitScope: "github-action",
+      commitMessageTopic: "action {{depName}}",
+      commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}}):",
+    },
+  ],
+}

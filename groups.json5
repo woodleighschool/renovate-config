@@ -12,7 +12,6 @@
       matchManagers: ["mise"],
       groupName: "mise tools",
       groupSlug: "mise-tools",
-      minimumReleaseAge: "3 days",
     },
     {
       description: "Go Toolchain Group",

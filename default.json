@@ -10,6 +10,7 @@
     "github>woodleighschool/renovate-config:helmPostUpgradeTasks.json5",
     "github>woodleighschool/renovate-config:labels.json5",
     "github>woodleighschool/renovate-config:semanticCommits.json5",
+    "github>woodleighschool/renovate-config:sharedActions.json5",
     "security:gomodIndirectSecurityUpdates",
     ":automergePr",
     ":configMigration",
@@ -29,6 +30,17 @@
       "description": "NPM Bump Range Strategy",
       "matchManagers": ["npm"],
       "rangeStrategy": "bump"
+    },
+    {
+      "description": "Auto-merge non-major updates, but only after every CI check passes",
+      "matchUpdateTypes": ["minor", "patch", "digest", "lockFileMaintenance"],
+      "automerge": true
+    },
+    {
+      "description": "zer0ver: 0.x minors can break at any time, don't automerge them",
+      "matchUpdateTypes": ["minor"],
+      "matchCurrentVersion": "/^v?0\\./",
+      "automerge": false
     }
   ]
 }
