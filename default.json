@@ -27,8 +27,10 @@
   },
   "packageRules": [
     {
-      "description": "NPM Bump Range Strategy",
+      "description": "npm and pnpm dependency policy",
       "matchManagers": ["npm"],
+      "internalChecksFilter": "none",
+      "minimumReleaseAge": "1 day",
       "rangeStrategy": "bump"
     },
     {
