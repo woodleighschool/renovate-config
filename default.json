@@ -33,6 +33,11 @@
       "rangeStrategy": "bump"
     },
     {
+      "description": "Skip changelogs for AWS SDK Go v2",
+      "matchSourceUrls": ["https://github.com/aws/aws-sdk-go-v2{/**,}"],
+      "fetchChangeLogs": "off"
+    },
+    {
       "description": "Auto-merge non-major updates, but only after every CI check passes",
       "matchUpdateTypes": ["minor", "patch", "digest", "lockFileMaintenance"],
       "automerge": true
