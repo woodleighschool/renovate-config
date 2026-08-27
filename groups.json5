@@ -5,7 +5,6 @@
       description: "GitHub Actions Group",
       matchManagers: ["github-actions"],
       groupName: "github-actions",
-      minimumReleaseAge: "3 days",
     },
     {
       description: "Mise Tools Group",
