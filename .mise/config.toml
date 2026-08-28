@@ -2,7 +2,7 @@
 [tools]
 actionlint = "1.7.12"
 lefthook = "2.1.11"
-node = "26.7.0"
+node = "26.8.1"
 oxfmt = "0.64.0"
 "npm:renovate" = { version = "44.46.6", trust_policy_excludes = [
   "@yarnpkg/libzip",
