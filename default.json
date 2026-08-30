@@ -29,6 +29,7 @@
     {
       "description": "NPM Bump Range Strategy",
       "matchManagers": ["npm"],
+      "minimumReleaseAge": "1 day",
       "rangeStrategy": "bump"
     },
     {
