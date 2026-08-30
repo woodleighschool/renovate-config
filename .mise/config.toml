@@ -3,14 +3,14 @@
 actionlint = "1.7.12"
 lefthook = "2.1.11"
 node = "26.8.1"
-oxfmt = "0.64.0"
-"npm:renovate" = { version = "44.46.6", trust_policy_excludes = [
+oxfmt = "0.65.0"
+"npm:renovate" = { version = "44.45.1", trust_policy_excludes = [
   "@yarnpkg/libzip",
 ] }
 shellcheck = "0.11.0"
 zizmor = "1.29.0"
 
-[tasks.lint]
+[tasks."lint"]
 description = "Check JSON/JSON5, YAML, Markdown, and shell formatting"
 run = [
   "oxfmt --check .",

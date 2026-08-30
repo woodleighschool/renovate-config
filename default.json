@@ -6,8 +6,8 @@
     "helpers:pinGitHubActionDigestsToSemver",
     "abandonments:recommended",
     "github>woodleighschool/renovate-config:annotated.json5",
+    "github>woodleighschool/renovate-config:autoMerge.json5",
     "github>woodleighschool/renovate-config:groups.json5",
-    "github>woodleighschool/renovate-config:helmPostUpgradeTasks.json5",
     "github>woodleighschool/renovate-config:labels.json5",
     "github>woodleighschool/renovate-config:semanticCommits.json5",
     "github>woodleighschool/renovate-config:sharedActions.json5",
@@ -18,37 +18,16 @@
     ":disableRateLimiting"
   ],
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
-  "minimumReleaseAge": "3 days",
   "minimumReleaseAgeBehaviour": "timestamp-optional",
-  "statusCheckWhen": {
-    "minimumReleaseAge": "never"
-  },
   "lockFileMaintenance": {
     "enabled": true,
-    "automerge": true,
     "schedule": ["before 3am on the first day of the month"],
     "commitMessageExtra": "({{manager}})",
     "additionalBranchPrefix": "{{manager}}-"
   },
   "packageRules": [
     {
-      "description": "Automerge routine updates",
-      "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
-      "automerge": true
-    },
-    {
-      "description": "Woodleigh Release Age Bypass",
-      "matchPackageNames": ["/woodleighschool/"],
-      "minimumReleaseAge": null
-    },
-    {
-      "description": "zer0ver: 0.x minors can break at any time, don't automerge them",
-      "matchUpdateTypes": ["minor"],
-      "matchCurrentVersion": "/^v?0\\./",
-      "automerge": false
-    },
-    {
-      "description": "npm and pnpm dependency policy",
+      "description": "NPM Bump Range Strategy",
       "matchManagers": ["npm"],
       "rangeStrategy": "bump"
     },

@@ -27,11 +27,6 @@
       commitMessageTopic: "image {{depName}}",
     },
     {
-      matchDatasources: ["helm"],
-      semanticCommitScope: "helm",
-      commitMessageTopic: "chart {{depName}}",
-    },
-    {
       matchManagers: ["gomod"],
       semanticCommitScope: "go",
       commitMessageTopic: "module {{depName}}",
@@ -48,7 +43,7 @@
     },
     {
       matchManagers: ["github-actions"],
-      semanticCommitType: "ci",
+      semanticCommitType: "chore",
       semanticCommitScope: "github-action",
       commitMessageTopic: "action {{depName}}",
     },
