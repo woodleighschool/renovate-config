@@ -2,14 +2,14 @@
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   customManagers: [
     {
-      description: "Update home-operations/.github shared action pins (per-action prefixed tags)",
+      description: "Update shared action pins (per-action prefixed tags)",
       customType: "regex",
       managerFilePatterns: ["/\\.github/workflows/[^/]+\\.ya?ml$/"],
       matchStrings: [
-        "uses: home-operations/\\.github/actions/(?<action>[\\w-]+)@(?<currentDigest>[a-f0-9]{40})\\s+#\\s+[\\w-]+-(?<currentValue>v?\\d+\\.\\d+\\.\\d+)",
+        "uses: (?<owner>home-operations|woodleighschool)/\\.github/actions/(?<action>[\\w-]+)@(?<currentDigest>[a-f0-9]{40})\\s+#\\s+[\\w-]+-(?<currentValue>v?\\d+\\.\\d+\\.\\d+)",
       ],
-      depNameTemplate: "home-operations/.github/actions/{{{action}}}",
-      packageNameTemplate: "home-operations/.github",
+      depNameTemplate: "{{{owner}}}/.github/actions/{{{action}}}",
+      packageNameTemplate: "{{{owner}}}/.github",
       datasourceTemplate: "github-tags",
       extractVersionTemplate: "^{{{action}}}-(?<version>v?\\d+\\.\\d+\\.\\d+)$",
       versioningTemplate: "semver-coerced",
@@ -17,13 +17,29 @@
   ],
   packageRules: [
     {
+      description: "Leave prefixed action pins to the shared action manager",
+      matchManagers: ["github-actions"],
+      matchDepNames: ["home-operations/.github", "woodleighschool/.github"],
+      matchDepTypes: ["action"],
+      matchFileNames: [".github/workflows/*.yaml", ".github/workflows/*.yml"],
+      matchCurrentValue: "/^[\\w-]+-v?\\d+\\.\\d+\\.\\d+$/",
+      matchJsonata: ["$exists(currentDigest)"],
+      enabled: false,
+    },
+    {
       matchManagers: ["custom.regex"],
-      matchPackageNames: ["home-operations/.github"],
+      matchDepNames: ["home-operations/.github/actions/*", "woodleighschool/.github/actions/*"],
       groupName: "github-actions",
-      semanticCommitType: "ci",
+      minimumReleaseAge: "1 day",
+      semanticCommitType: "chore",
       semanticCommitScope: "github-action",
       commitMessageTopic: "action {{depName}}",
       commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}}):",
+    },
+    {
+      matchManagers: ["custom.regex"],
+      matchDepNames: ["woodleighschool/.github/actions/*"],
+      minimumReleaseAge: "0 days",
     },
   ],
 }

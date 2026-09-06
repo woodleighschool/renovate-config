@@ -42,9 +42,12 @@
       description: "pnpm Group",
       matchManagers: ["mise", "npm"],
       matchDepNames: ["pnpm"],
+      matchDepTypes: ["tools", "packageManager"],
       matchFileNames: [".mise/config.toml", "**/package.json"],
       groupName: "pnpm",
       groupSlug: "pnpm",
+      minimumReleaseAge: "1 day",
+      semanticCommitType: "chore",
     },
     {
       description: "React Runtime Group",

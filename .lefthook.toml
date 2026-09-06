@@ -4,5 +4,5 @@ ref = "main"
 configs = ["lefthook.common.toml"]
 
 [pre-commit.commands.renovate-config-validator]
-glob = ["*.json5"]
-run = "renovate-config-validator --strict {staged_files}"
+glob = ["default.json", "*.json5"]
+run = "renovate-config-validator --strict --no-global {staged_files}"

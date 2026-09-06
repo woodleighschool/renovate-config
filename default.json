@@ -7,9 +7,9 @@
     "abandonments:recommended",
     "github>woodleighschool/renovate-config:annotated.json5",
     "github>woodleighschool/renovate-config:autoMerge.json5",
-    "github>woodleighschool/renovate-config:groups.json5",
     "github>woodleighschool/renovate-config:labels.json5",
     "github>woodleighschool/renovate-config:semanticCommits.json5",
+    "github>woodleighschool/renovate-config:groups.json5",
     "github>woodleighschool/renovate-config:sharedActions.json5",
     "security:gomodIndirectSecurityUpdates",
     ":automergePr",
@@ -25,13 +25,11 @@
     "commitMessageExtra": "({{manager}})",
     "additionalBranchPrefix": "{{manager}}-"
   },
+  "npm": {
+    "minimumReleaseAge": "1 day",
+    "rangeStrategy": "bump"
+  },
   "packageRules": [
-    {
-      "description": "NPM Bump Range Strategy",
-      "matchManagers": ["npm"],
-      "minimumReleaseAge": "1 day",
-      "rangeStrategy": "bump"
-    },
     {
       "description": "Skip changelogs for AWS SDK Go v2",
       "matchSourceUrls": ["https://github.com/aws/aws-sdk-go-v2{/**,}"],

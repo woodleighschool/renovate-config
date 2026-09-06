@@ -19,7 +19,7 @@ run = [
 
 [tasks.validate]
 description = "Validate Renovate presets against the schema"
-run = "renovate-config-validator --strict"
+run = "renovate-config-validator --strict --no-global"
 
 [hooks]
 postinstall = "lefthook install"
