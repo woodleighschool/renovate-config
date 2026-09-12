@@ -3,12 +3,12 @@
 actionlint = "1.7.12"
 lefthook = "2.1.12"
 node = "26.8.2"
-oxfmt = "0.66.0"
-"npm:renovate" = { version = "44.67.2", trust_policy_excludes = [
+oxfmt = "0.67.0"
+"npm:renovate" = { version = "44.74.0", trust_policy_excludes = [
   "@yarnpkg/libzip",
 ] }
 shellcheck = "0.11.0"
-zizmor = "1.30.0"
+zizmor = "1.30.1"
 
 [tasks."lint"]
 description = "Check JSON/JSON5, YAML, Markdown, and shell formatting"
