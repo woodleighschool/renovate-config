@@ -3,8 +3,8 @@
 actionlint = "1.7.12"
 lefthook = "2.1.14"
 node = "26.9.0"
-oxfmt = "0.67.0"
-"npm:renovate" = { version = "44.85.0", trust_policy_excludes = [
+oxfmt = "0.68.0"
+"npm:renovate" = { version = "44.94.0", trust_policy_excludes = [
   "@yarnpkg/libzip",
 ] }
 shellcheck = "0.11.0"
