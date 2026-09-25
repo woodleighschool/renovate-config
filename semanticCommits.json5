@@ -12,6 +12,12 @@
       commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
     },
     {
+      matchUpdateTypes: ["minor"],
+      matchCurrentVersion: "/^v?0\\./",
+      semanticCommitType: "feat",
+      commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
+    },
+    {
       matchUpdateTypes: ["patch"],
       semanticCommitType: "fix",
       commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
