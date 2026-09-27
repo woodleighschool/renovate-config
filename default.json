@@ -17,7 +17,7 @@
     ":dependencyDashboard",
     ":disableRateLimiting"
   ],
-  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+  "dependencyDashboardTitle": "Renovate Dashboard \ud83e\udd16",
   "minimumReleaseAgeBehaviour": "timestamp-optional",
   "lockFileMaintenance": {
     "enabled": true,
@@ -30,6 +30,12 @@
     "rangeStrategy": "bump"
   },
   "packageRules": [
+    {
+      "description": "Mise owns generated dependency sidecars; update tools through the mise manager",
+      "matchManagers": ["npm"],
+      "matchFileNames": ["**/.mise/locks/**"],
+      "enabled": false
+    },
     {
       "description": "Skip changelogs for AWS SDK Go v2",
       "matchSourceUrls": ["https://github.com/aws/aws-sdk-go-v2{/**,}"],
