@@ -66,10 +66,10 @@ checksum = "sha256:751fdf7439f115d87ee2a8f3f18c065b6151852068e3e666ac60ac2996f75
 url = "https://nodejs.org/dist/v26.10.0/node-v26.10.0-darwin-arm64.tar.gz"
 
 [[tools."npm:renovate"]]
-version = "44.116.0"
-aube = { path = "locks/npm-renovate/44.116.0~dd67d2de", digest = "sha256:e8f55135aef8487f4167aba7fef68abc6d08bbbdc5647ebfafeb803ba07068c1" }
+version = "44.116.1"
+aube = { path = "locks/npm-renovate/44.116.1~dd67d2de", digest = "sha256:d4df59b7562e282357ea54a282321d9ad4582508939c61479dbffb6979ac763d" }
 backend = "npm:renovate"
-specifiers = ["44.116.0"]
+specifiers = ["44.116.1"]
 
 [tools."npm:renovate".options]
 trust_policy_excludes = '["@yarnpkg/libzip"]'
