@@ -2,29 +2,11 @@
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   packageRules: [
     {
-      matchUpdateTypes: ["major"],
-      semanticCommitType: "feat",
-      commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
-    },
-    {
-      matchUpdateTypes: ["minor"],
-      semanticCommitType: "feat",
-      commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
-    },
-    {
-      matchUpdateTypes: ["minor"],
-      matchCurrentVersion: "/^v?0\\./",
-      semanticCommitType: "feat",
-      commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
-    },
-    {
-      matchUpdateTypes: ["patch"],
-      semanticCommitType: "fix",
+      matchUpdateTypes: ["major", "minor", "patch"],
       commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
     },
     {
       matchUpdateTypes: ["digest"],
-      semanticCommitType: "fix",
       commitMessageExtra: "({{currentDigestShort}} → {{newDigestShort}})",
     },
     {
