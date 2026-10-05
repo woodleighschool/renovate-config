@@ -5,19 +5,19 @@
     "docker:enableMajor",
     "helpers:pinGitHubActionDigestsToSemver",
     "abandonments:recommended",
-    "github>woodleighschool/renovate-config:annotated.json5",
-    "github>woodleighschool/renovate-config:autoMerge.json5",
-    "github>woodleighschool/renovate-config:labels.json5",
-    "github>woodleighschool/renovate-config:semanticCommits.json5",
-    "github>woodleighschool/renovate-config:groups.json5",
-    "github>woodleighschool/renovate-config:sharedActions.json5",
+    "./annotated.json5",
+    "./autoMerge.json5",
+    "./labels.json5",
+    "./semanticCommits.json5",
+    "./groups.json5",
+    "./sharedActions.json5",
     "security:gomodIndirectSecurityUpdates",
     ":automergePr",
     ":configMigration",
     ":dependencyDashboard",
     ":disableRateLimiting"
   ],
-  "dependencyDashboardTitle": "Renovate Dashboard \ud83e\udd16",
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   "minimumReleaseAgeBehaviour": "timestamp-optional",
   "lockFileMaintenance": {
     "enabled": true,
@@ -31,15 +31,20 @@
   },
   "packageRules": [
     {
-      "description": "Mise owns generated dependency sidecars; update tools through the mise manager",
-      "matchManagers": ["npm"],
-      "matchFileNames": ["**/.mise/locks/**"],
-      "enabled": false
-    },
-    {
       "description": "Skip changelogs for AWS SDK Go v2",
       "matchSourceUrls": ["https://github.com/aws/aws-sdk-go-v2{/**,}"],
       "fetchChangeLogs": "off"
     }
+  ],
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/vendor/**",
+    "**/examples/**",
+    "**/__tests__/**",
+    "**/test/**",
+    "**/tests/**",
+    "**/__fixtures__/**",
+    "**/.mise/locks/**"
   ]
 }
