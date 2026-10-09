@@ -17,8 +17,7 @@
     {
       description: "Go Toolchain Group",
       matchManagers: ["mise"],
-      matchDepNames: ["go", "golangci-lint"],
-      matchFileNames: [".mise/config.toml"],
+      matchDepNames: ["go"],
       groupName: "Go toolchain",
       groupSlug: "go-toolchain",
     },
