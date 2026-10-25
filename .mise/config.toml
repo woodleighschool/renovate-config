@@ -4,7 +4,7 @@ actionlint = "1.7.12"
 lefthook = "2.2.2"
 node = "26.12.1"
 oxfmt = "0.74.0"
-"npm:renovate" = { version = "44.176.3", trust_policy_excludes = [
+"npm:renovate" = { version = "44.178.0", trust_policy_excludes = [
   "@yarnpkg/libzip",
 ] }
 shellcheck = "0.11.0"
