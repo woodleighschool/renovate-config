@@ -6,10 +6,10 @@
       customType: "regex",
       managerFilePatterns: ["/\\.github/workflows/[^/]+\\.ya?ml$/"],
       matchStrings: [
-        "uses: (?<owner>home-operations|woodleighschool)/\\.github/actions/(?<action>[\\w-]+)@(?<currentDigest>[a-f0-9]{40})\\s+#\\s+[\\w-]+-(?<currentValue>v?\\d+\\.\\d+\\.\\d+)",
+        "uses: woodleighschool/\\.github/actions/(?<action>[\\w-]+)@(?<currentDigest>[a-f0-9]{40})\\s+#\\s+[\\w-]+-(?<currentValue>v?\\d+\\.\\d+\\.\\d+)",
       ],
-      depNameTemplate: "{{{owner}}}/.github/actions/{{{action}}}",
-      packageNameTemplate: "{{{owner}}}/.github",
+      depNameTemplate: "woodleighschool/.github/actions/{{{action}}}",
+      packageNameTemplate: "woodleighschool/.github",
       datasourceTemplate: "github-tags",
       extractVersionTemplate: "^{{{action}}}-(?<version>v?\\d+\\.\\d+\\.\\d+)$",
       versioningTemplate: "semver-coerced",
@@ -19,7 +19,7 @@
     {
       description: "Leave prefixed action pins to the shared action manager",
       matchManagers: ["github-actions"],
-      matchDepNames: ["home-operations/.github", "woodleighschool/.github"],
+      matchDepNames: ["woodleighschool/.github"],
       matchDepTypes: ["action"],
       matchFileNames: [".github/workflows/*.yaml", ".github/workflows/*.yml"],
       matchCurrentValue: "/^[\\w-]+-v?\\d+\\.\\d+\\.\\d+$/",
@@ -28,18 +28,13 @@
     },
     {
       matchManagers: ["custom.regex"],
-      matchDepNames: ["home-operations/.github/actions/*", "woodleighschool/.github/actions/*"],
+      matchDepNames: ["woodleighschool/.github/actions/*"],
       groupName: "github-actions",
-      minimumReleaseAge: "1 day",
+      minimumReleaseAge: "0 days",
       semanticCommitType: "chore",
       semanticCommitScope: "github-action",
       commitMessageTopic: "action {{depName}}",
       commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}}):",
-    },
-    {
-      matchManagers: ["custom.regex"],
-      matchDepNames: ["woodleighschool/.github/actions/*"],
-      minimumReleaseAge: "0 days",
     },
   ],
 }
