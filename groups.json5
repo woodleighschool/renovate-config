@@ -45,7 +45,6 @@
       matchFileNames: [".mise/config.toml", "**/package.json"],
       groupName: "pnpm",
       groupSlug: "pnpm",
-      minimumReleaseAge: "1 day",
       semanticCommitType: "chore",
     },
     {

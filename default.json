@@ -26,7 +26,6 @@
     "additionalBranchPrefix": "{{manager}}-"
   },
   "npm": {
-    "minimumReleaseAge": "1 day",
     "rangeStrategy": "bump"
   },
   "packageRules": [
@@ -34,6 +33,16 @@
       "description": "Skip changelogs for AWS SDK Go v2",
       "matchSourceUrls": ["https://github.com/aws/aws-sdk-go-v2{/**,}"],
       "fetchChangeLogs": "off"
+    },
+    {
+      "description": "Hold package-registry updates (Go modules, npm, PyPI, crates) until they are 3 days old, the same window as the github-actions and mise groups",
+      "matchCategories": ["golang", "js", "python", "rust"],
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "description": "First-party Go modules skip the hold",
+      "matchPackageNames": ["github.com/woodleighschool/**"],
+      "minimumReleaseAge": "0 days"
     },
     {
       "matchManagers": ["mise"],
